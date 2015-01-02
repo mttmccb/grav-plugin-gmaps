@@ -8,6 +8,11 @@ class GMapsPlugin extends Plugin
 {
   private static $instances = 0;
 
+  private $template_js      = 'plugins/gmaps/gmaps.js.twig';
+  private $template_js_main = 'plugins/gmaps/gmaps_main.js.twig';
+  private $template_html    = 'plugins/gmaps/gmaps.html.twig';
+  private $template_vars    = [];
+
   public static function getSubscribedEvents()
   {
     return [
@@ -25,12 +30,12 @@ class GMapsPlugin extends Plugin
     $this->enable([
       'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
       'onTwigInitialized'   => ['onTwigInitialized', 0]
-      ]);
-    }
+    ]);
+  }
 
-    public function onTwigInitialized()
-    {
-      $this->grav['twig']->twig()->addFunction(
+  public function onTwigInitialized()
+  {
+    $this->grav['twig']->twig()->addFunction(
       new \Twig_SimpleFunction('gmaps', [$this, 'gmapsFunction'], ['is_safe' => ['html']])
     );
   }
@@ -46,10 +51,7 @@ class GMapsPlugin extends Plugin
 
     $this->mergeConfig($page, $params);
 
-    $template_js        = 'plugins/gmaps/gmaps.js.twig';
-    $template_js_main   = 'plugins/gmaps/gmaps_main.js.twig';
-    $template_html      = 'plugins/gmaps/gmaps.html.twig';
-    $template_vars      = [
+    $this->template_vars      = [
       'id'        => $this->config->get('id') . '-' . self::$instances,
       'width'     => $this->config->get('width'),
       'height'    => $this->config->get('height'),
@@ -60,14 +62,16 @@ class GMapsPlugin extends Plugin
       'instances' => self::$instances
     ];
 
+    /*
     if (0 === self::$instances) {
       $this->grav['assets']->addJs('//maps.googleapis.com/maps/api/js?sensor=false');
       $this->grav['assets']->addInlineJs($this->grav['twig']->twig()->render($template_js_main, $template_vars));
     }
 
     $this->grav['assets']->addInlineJs($this->grav['twig']->twig()->render($template_js, $template_vars));
+    */
 
-    $output = $this->grav['twig']->twig()->render($template_html, $template_vars);
+    $output = $this->grav['twig']->twig()->render($this->template_html, $this->template_vars);
 
     self::$instances++;
 
