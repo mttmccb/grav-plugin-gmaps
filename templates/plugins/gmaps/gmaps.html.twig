@@ -1,0 +1,5 @@
+<div id="{{ id }}"></div>
+
+<noscript id="{{ id }}" class="{{ class }}">
+  <img src="http://maps.google.com/maps/api/staticmap?center={{ address|e }}&zoom={{ zoom }}&size={{ width }}x{{ height }}&maptype={{ type }}&markers=color:red|color:red|{{ address|e }}&sensor=false" width="{{ width }}" height="{{ height }}" class="{{ class }}" alt="{{ address }}" />
+</noscript>

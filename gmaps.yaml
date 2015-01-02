@@ -1,0 +1,9 @@
+enabled: true
+
+id: "gmap"
+width: 600
+height: 450
+type: "roadmap"
+class: "gmap"
+address: ""
+zoom: 15
