@@ -51,6 +51,8 @@ class GMapsPlugin extends Plugin
 
     $this->mergeConfig($page, $params);
 
+    $this->template_html = 'plugins/gmaps/gmaps.html.twig';
+
     $this->template_vars      = [
       'id'        => $this->config->get('id') . '-' . self::$instances,
       'width'     => $this->config->get('width'),

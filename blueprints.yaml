@@ -1,5 +1,5 @@
 name: Google Maps
-version: 1.0.1
+version: 1.0.2
 description: "This plugin add Google Maps [GMaps](http://googlemaps.com) into your **Grav site**."
 icon: map-marker
 author:
@@ -11,3 +11,17 @@ demo: http://grav-demo.nunopress.com/
 keywords: "google, maps, plugin"
 bugs: https://github.com/nunopress/grav-plugin-gmaps/issues
 license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
