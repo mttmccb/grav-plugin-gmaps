@@ -10,7 +10,7 @@ homepage: https://github.com/nunopress/grav-plugin-gmaps
 #demo: http://grav-demo.nunopress.com/
 keywords: "google, maps, plugin"
 bugs: https://github.com/nunopress/grav-plugin-gmaps/issues
-docs: https://github.com/nunopress/grav-plugin-gmaps/README.md
+docs: https://github.com/nunopress/grav-plugin-gmaps/blob/develop/README.md
 license: MIT
 
 form:
