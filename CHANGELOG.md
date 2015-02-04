@@ -1,3 +1,9 @@
+# v1.0.4
+## 02/04/2015
+
+1. [](#bugfix)
+    * Change name for internal method mergeConfig to mergePluginConfig.
+
 # v1.0.3
 ## 02/04/2015
 
