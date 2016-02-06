@@ -26,7 +26,7 @@ You should now have all the plugin files under
 
 # Usage
 
-Add the Twig code to your template or page (_for page you need to enable the twig process in the configuration file_):
+Add the Twig code to your template or page:
 
     {{ gmaps({params}) }}
 
@@ -35,6 +35,12 @@ The params format follow the Twig array, example:
     {{ gmaps({'id': 'gmaps', 'class': 'gmaps'}) }}
 
 The plugin comes with some sensible default configuration, that are pretty self explanatory:
+
+## In Pages
+To use in pages you need to enable twig processing by adding the follow to your header
+
+    process:
+      twig: true
 
 # Options
 
